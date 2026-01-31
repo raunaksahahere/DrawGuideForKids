@@ -65,4 +65,60 @@ No image assets
 ---
 
 ## 📂 Project Structure
+```
+└── 📁 draw-with-words
+    ├── 📁 assets
+    │   └── 📁 icons
+    ├── 📁 js
+    │   ├── 📄 generator.js
+    │   ├── 📄 guides.js
+    │   ├── 📄 main.js
+    │   ├── 📄 paint.js
+    │   └── 📄 utils.js
+    ├── ⚙️ .gitignore
+    ├── 📝 README.md
+    ├── 🌐 index.html
+    └── 🎨 style.css
+```
+
+---
+
+## 🌱 Inspiration
+
+This project was inspired by my **little sister’s school practical**, where she had to draw pictures using MS Paint.
+
+The goal was simple:
+* Make drawing feel less scary
+* Let kids learn by copying
+* Keep things fun, not perfect
+
+Sometimes the best project ideas come from real life.
+
+---
+
+## 🚀 Future Ideas
+
+⭐ Add more drawable words  
+🎤 Step-by-step voice guidance  
+🖼️ Save drawing as image  
+🎉 Rewards or stars for completion  
+📱 Better touch & tablet support  
+
+---
+
+## 📸 Preview
+
+*(Add screenshots or a short GIF here)*
+
+---
+
+## 👋 Author
+
+Built by **Raunak Saha**  
+Aspiring AI & Web Developer  
+
+Learning by building — and building with heart.
+
+*Because coding should be fun. Especially for kids.* 💛
+
 
