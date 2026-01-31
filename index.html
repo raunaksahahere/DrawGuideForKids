@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draw with Words!</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎨</text></svg>">
+</head>
+<body>
+    <header>
+        <h1>Draw with Words! 🎨</h1>
+        <div class="input-group">
+            <input type="text" id="word-input" placeholder="Type 'cat', 'sun', 'tree'..." autocomplete="off">
+            <button id="generate-btn">Generate ✨</button>
+        </div>
+    </header>
+
+    <main class="app-container">
+        <!-- Left Panel: Reference -->
+        <section class="panel left-panel">
+            <h2>Reference</h2>
+            <div class="canvas-wrapper">
+                <canvas id="reference-canvas" width="400" height="400"></canvas>
+            </div>
+            <p class="instruction">Try to draw this!</p>
+        </section>
+
+        <!-- Right Panel: Drawing Canvas -->
+        <section class="panel right-panel">
+            <h2>Your Drawing</h2>
+            <div class="canvas-wrapper">
+                <canvas id="drawing-canvas" width="400" height="400"></canvas>
+                <canvas id="ghost-canvas" width="400" height="400"></canvas> <!-- Overlay for guides -->
+            </div>
+            
+            <div class="controls">
+                <div class="tools">
+                    <button class="tool-btn active" id="brush-btn" title="Brush">🖌️</button>
+                    <button class="tool-btn" id="eraser-btn" title="Eraser">🧼</button>
+                    <button class="action-btn" id="clear-btn" title="Clear Canvas">🗑️ Clear</button>
+                    <button class="action-btn" id="guide-btn" title="Toggle Guide">👻 Guide</button>
+                </div>
+                <div class="colors">
+                    <button class="color-btn selected" style="background-color: black;" data-color="black"></button>
+                    <button class="color-btn" style="background-color: #ff4d4d;" data-color="#ff4d4d"></button> <!-- Red -->
+                    <button class="color-btn" style="background-color: #4d94ff;" data-color="#4d94ff"></button> <!-- Blue -->
+                    <button class="color-btn" style="background-color: #4dff88;" data-color="#4dff88"></button> <!-- Green -->
+                    <button class="color-btn" style="background-color: #ffff4d;" data-color="#ffff4d"></button> <!-- Yellow -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/generator.js"></script>
+    <script src="js/guides.js"></script>
+    <script src="js/paint.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
