@@ -10,7 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const clearBtn = document.getElementById('clear-btn');
     const brushBtn = document.getElementById('brush-btn');
     const eraserBtn = document.getElementById('eraser-btn');
+    const fillBtn = document.getElementById('fill-btn');
     const guideBtn = document.getElementById('guide-btn');
+    const refColorToggle = document.getElementById('ref-color-toggle');
     const colorBtns = document.querySelectorAll('.color-btn');
 
     // Default startup
@@ -25,6 +27,23 @@ document.addEventListener('DOMContentLoaded', () => {
             if (Guides.isVisible) {
                 Guides.updateGuide();
             }
+        }
+    });
+
+    // Reference Color Toggle
+    refColorToggle.addEventListener('click', () => {
+        const isColor = Generator.toggleColorMode();
+        if (isColor) {
+            refColorToggle.classList.add('active');
+            refColorToggle.textContent = '🌈 Color Mode: ON';
+        } else {
+            refColorToggle.classList.remove('active');
+            refColorToggle.textContent = '🌈 Color Mode';
+        }
+        
+        // Update guide if visible, because the reference changed
+        if (Guides.isVisible) {
+            Guides.updateGuide();
         }
     });
 
@@ -50,6 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
         Paint.setTool('eraser');
         updateActiveTool(eraserBtn);
     });
+    
+    fillBtn.addEventListener('click', () => {
+        Paint.setTool('fill');
+        updateActiveTool(fillBtn);
+    });
 
     function updateActiveTool(activeBtn) {
         document.querySelectorAll('.tool-btn').forEach(btn => btn.classList.remove('active'));
@@ -66,8 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
             colorBtns.forEach(b => b.classList.remove('selected'));
             btn.classList.add('selected');
 
-            // If we pick a color, we probably want the brush
-            updateActiveTool(brushBtn);
+            // If we pick a color, and we are on eraser, switch to brush.
+            // If we are on fill, stay on fill.
+            if (Paint.tool === 'eraser') {
+                Paint.setTool('brush');
+                updateActiveTool(brushBtn);
+            }
         });
     });
 
